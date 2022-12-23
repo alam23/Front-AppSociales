@@ -1,0 +1,39 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side" opened="isExpanded">
+    <mat-nav-list>
+
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
+        </mat-icon>
+      </mat-list-item>
+
+      <mat-list-item (click)="redirectTo('a')">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">  Inicio</span>
+      </mat-list-item>
+
+      <mat-list-item (click)="redirectTo('a')">
+        <mat-icon mat-list-icon>person</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">  Mi perfil</span>
+      </mat-list-item>
+
+      <mat-list-item (click)="redirectTo('a')">
+        <mat-icon mat-list-icon>supervisor_account</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">  Amigos</span>
+      </mat-list-item>
+
+      <mat-list-item (click)="redirectTo('a')">
+        <mat-icon mat-list-icon>location_on</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">  Mis rutas</span>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <h4>HOLOTOURISM</h4>
+    </mat-toolbar>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
