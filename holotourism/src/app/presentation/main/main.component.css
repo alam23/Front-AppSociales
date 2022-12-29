@@ -1,0 +1,24 @@
+mat-sidenav-container {
+  height: 100%;
+}
+
+.input {
+  margin-left: 150px;
+  height: 28px;
+  width: 500px;
+}
+
+.mat-success {
+  background-color: black;
+  color: #fff;
+}
+
+.toolbar-button{
+  position: absolute;
+  right: 100px;
+}
+
+.user-button{
+  position: absolute;
+  right: 20px;
+}

@@ -1,0 +1,9 @@
+.example-card {
+  max-width: 1200px;
+  margin-bottom: 8px;
+  margin-left: 28px;
+}
+
+.card-content {
+  max-width: 900px;
+}

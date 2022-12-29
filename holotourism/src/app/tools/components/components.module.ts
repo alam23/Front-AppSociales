@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidenavComponent } from './sidenav/sidenav.component';
 import { CustomMaterialModule } from './../material.module';
+import { RouteCardComponent } from './route-card/route-card.component';
 
 @NgModule({
   declarations: [
-    SidenavComponent,
+    RouteCardComponent,
   ],
   imports: [
     CommonModule,
     CustomMaterialModule,
   ],
   exports: [
-    SidenavComponent,
+    RouteCardComponent,
   ]
 })
 export class ComponentsModule { }

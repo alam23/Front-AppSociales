@@ -1,0 +1,15 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{routeModel.name}}</mat-card-title>
+      <button mat-raised-button color="primary">Ver ruta</button>
+    </mat-card-title-group>
+
+  </mat-card-header>
+  <mat-card-content class="card-content">
+    {{routeModel.description}}
+  </mat-card-content>
+  <mat-card-actions align="end">
+    Creado el {{routeModel.date_created}}
+  </mat-card-actions>
+</mat-card>
