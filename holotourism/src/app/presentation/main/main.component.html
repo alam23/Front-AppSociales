@@ -27,6 +27,11 @@
         <span *ngIf="isExpanded" class="menu-item">  Mis rutas</span>
       </mat-list-item>
 
+      <mat-list-item (click)="cerrarSesion()">
+        <mat-icon mat-list-icon>exit_to_app</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item"> Cerrar Sesión</span>
+      </mat-list-item>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

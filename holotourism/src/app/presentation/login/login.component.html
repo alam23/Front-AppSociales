@@ -1,0 +1,39 @@
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+      <img src="assets/img/register-image.PNG" alt="" >
+  </mat-grid-tile>
+  <mat-grid-tile>
+      <mat-card class="register-card">
+          <mat-card-header class="register-header">
+              <mat-card-title>Iniciar Sesión en Holotourism</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+              <form [formGroup]="loginForm">
+                  <p>
+                      <mat-form-field class="field-full">
+                          <mat-label>Nombre de Usuario</mat-label>
+                          <input type="text" matInput formControlName="strUsername" placeholder="Elige tu nombre de usuario">
+                      </mat-form-field>
+                  </p>
+                  <p>
+                      <mat-form-field class="field-full">
+                          <mat-label>Contraseña</mat-label>
+                          <input type="password" matInput [type]="hide ? 'password' : 'text'" formControlName="strPassword" placeholder="Tu contraseña secreta">
+                          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+                      </mat-form-field>
+                  </p>
+                  <button mat-fab extended color="primary" (click)="loginUsuario()">
+                      <mat-icon>check_circle_outline</mat-icon>
+                      Iniciar Sesión
+                  </button>
+                  ¿Aun no tienes un cuenta? <a href="/register">Regístrate aquí</a>
+              </form>
+          </mat-card-content>
+      </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+

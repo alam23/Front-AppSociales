@@ -1,4 +1,4 @@
-<ng-container>
+<ng-container *ngIf="profile !== undefined">
   <mat-card class="example-card">
     <div class="editprofcontainer">
     <mat-card-header>
@@ -11,17 +11,17 @@
       <form class="example-form" [formGroup]="profileForm">
         <br><mat-form-field class="example-full-width">
           <mat-label>Username</mat-label>
-          <input matInput placeholder="Ex. user1232" formControlName="strUserName">
+          <input matInput placeholder="Usuario..." formControlName="strUserName">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Nombre</mat-label>
-          <input matInput placeholder="Ex. John..." formControlName="strName"><br>
+          <input matInput placeholder="Nombre..." formControlName="strName"><br>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Apellido</mat-label>
-          <input matInput placeholder="Ex. Smith..." formControlName="strLastName"><br>
+          <input matInput placeholder="Apellido..." formControlName="strLastName"><br>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">

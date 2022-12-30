@@ -10,17 +10,19 @@ import { UserResponse } from 'src/app/data/repository/user-repository/user.respo
   styleUrls: ['./mis-rutas.component.css']
 })
 export class MisRutasComponent {
+  userId: string = ''
   lstRutas: RutaModel[] = [];
   constructor(
     private homeRepo: HomeRepository,
   ) { }
 
   ngOnInit() {
+    this.userId = JSON.parse(localStorage.getItem("userId")!);
     this.listarRutas();
   }
 
   listarRutas(){
-    this.homeRepo.listarMisRutas("2").subscribe((res) => {
+    this.homeRepo.listarMisRutas(this.userId.toString()).subscribe((res) => {
       console.log(res);
       this.lstRutas = res;
     });

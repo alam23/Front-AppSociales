@@ -6,14 +6,15 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HomeRepository } from 'src/app/base/home.repository';
 import { RutaModel } from 'src/app/base/models/ruta.model';
+import { HomeMapper2 } from './home.mapper2';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HomeWebRepository extends HomeRepository{
 
-
   private homeMapper = new HomeMapper();
+  private homeMapper2 = new HomeMapper2();
 
   constructor(_http: HttpClient) {
     super(_http);
@@ -34,7 +35,7 @@ export class HomeWebRepository extends HomeRepository{
   }
 
   crearRuta(userId: string, name: String, description: String):
-  Observable<RutaModel[]> {
+  Observable<RutaModel> {
     return this.post(`https://localhost:7247/api/Routes/registrarRuta`,
      this.getOptionsRest(), {
       userId: userId,
@@ -42,7 +43,7 @@ export class HomeWebRepository extends HomeRepository{
       description: description
      }).pipe(
       map((data: any) => {
-        return this.homeMapper.mapFrom(data);
+        return this.homeMapper2.mapFrom(data);
       })
     );
   }

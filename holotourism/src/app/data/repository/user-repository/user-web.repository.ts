@@ -9,6 +9,7 @@ import { UserMapper } from './user.mapper';
     providedIn: 'root',
   })
   export class UserWebRepository extends UserRepository{
+
     private userMapper = new UserMapper();
     constructor(_http: HttpClient) {
         super(_http);
@@ -30,5 +31,21 @@ import { UserMapper } from './user.mapper';
                 return throwError(error);
             })
         );
+    }
+
+    loginUsuario(userName: string, password: string): Observable<UserModel> {
+      return this.post(`https://localhost:7247/api/Usuario/login`,
+      this.getOptionsRest(),{
+          userName: userName,
+          password: password
+      }).pipe(
+          map((data:any) => {
+              return this.userMapper.mapFrom(data);
+          }),
+          catchError((error) => {
+              console.log(error);
+              return throwError(error);
+          })
+      );
     }
   }

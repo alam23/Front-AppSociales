@@ -17,10 +17,11 @@ import { UserRepository } from './base/user.repository';
 import { UserWebRepository } from './data/repository/user-repository/user-web.repository';
 import { ProfileRepository } from './base/profile.repository';
 import { ProfileWebRepository } from './data/repository/profile-repository/profile-web.repository';
+import { LoginModule } from './presentation/login/login.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,8 @@ import { ProfileWebRepository } from './data/repository/profile-repository/profi
     CustomMaterialModule,
     HttpClientModule,
     MainModule,
-    RegisterModule
+    RegisterModule,
+    LoginModule
   ],
   providers: [
     { provide: CommonService },

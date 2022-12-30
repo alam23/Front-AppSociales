@@ -9,6 +9,7 @@ import { RutaRepository } from 'src/app/base/ruta.repository';
   styleUrls: ['./ruta.component.css']
 })
 export class RutaComponent {
+  userId: string = '';
   rutaId!: string;
   rutaInfo!: RutaInfoModel;
   postForm!: FormGroup;
@@ -20,6 +21,7 @@ export class RutaComponent {
   ) {}
 
   ngOnInit(): void {
+    this.userId = JSON.parse(localStorage.getItem("userId")!);
     this.inicializarFormularios();
     console.log(history.state.rutaId);
     if (history.state.rutaId) this.rutaId = history.state.rutaId;
@@ -64,7 +66,7 @@ export class RutaComponent {
     let strBody = this.postForm.get('body')?.value;
 
     this.rutaRepo.crearPost(
-      "1",
+      this.userId.toString(),
       this.rutaInfo.routeId.toString(),
       "a",
       strBody,
@@ -72,6 +74,7 @@ export class RutaComponent {
     ).subscribe(
       (res) => {
         this.actualizarRutaInfo(this.rutaId);
+        this.postForm.reset();
       }
     )
   }
@@ -86,11 +89,12 @@ export class RutaComponent {
 
     this.rutaRepo.crearComentario(
       postId,
-      "1",
+      this.userId.toString(),
       strBody
     ).subscribe(
       (res) => {
         this.actualizarRutaInfo(this.rutaId);
+        this.commentaryForm.reset();
       }
     )
   }

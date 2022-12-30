@@ -11,6 +11,8 @@ import { HomeRepository } from 'src/app/base/home.repository';
   styleUrls: ['./crear-ruta.component.css']
 })
 export class CrearRutaComponent {
+  userId: string = '';
+
   crearRutaForm!: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -24,6 +26,7 @@ export class CrearRutaComponent {
   }
 
   ngOnInit(): void {
+    this.userId = JSON.parse(localStorage.getItem("userId")!);
     this.inicializarFormulario();
   }
 
@@ -48,7 +51,7 @@ export class CrearRutaComponent {
     let strName = this.crearRutaForm.get('strName')?.value;
     let strDescription = this.crearRutaForm.get('strDescription')?.value;
 
-    this.homeRepo.crearRuta("2", strName, strDescription).subscribe(
+    this.homeRepo.crearRuta(this.userId.toString(), strName, strDescription).subscribe(
       (res) => {
         console.log(res);
         this.router.navigate(

@@ -1,7 +1,7 @@
 export interface ProfileModel {
   userId: number,
-  username: string,
+  userName: string,
   name: string,
-  lastname: string,
-  cellnumber: string
+  lastName: string,
+  cellNumber: string
 }

@@ -5,16 +5,16 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UserRepository } from 'src/app/base/user.repository';
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
-export class RegisterComponent implements OnInit{
+export class LoginComponent implements OnInit{
   ngOnInit(): void {
     this.inicializarFormulario();
   }
 
-  registerForm!: FormGroup;
+  loginForm!: FormGroup;
   hide = true;
 
   constructor(
@@ -29,30 +29,21 @@ export class RegisterComponent implements OnInit{
   }
 
   inicializarFormulario(){
-    this.registerForm = this.fb.group({
-      strNombre: [null, Validators.required],
-      strApellido: [null, Validators.required],
+    this.loginForm = this.fb.group({
       strUsername: [null, Validators.required],
       strPassword: [null, Validators.required],
-      strPhone: [null, Validators.required],
     });
   }
-  redirectTo(url:string){
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-    this.router.navigate([url]));
-  }
-  registrarUsuario(){
-    if(!this.registerForm.valid){
+
+  loginUsuario(){
+    if(!this.loginForm.valid){
       console.log("ERROR");
       return;
     }
-    let strNombre = this.registerForm.get('strNombre')?.value;
-    let strApellido = this.registerForm.get('strApellido')?.value;
-    let strUsername = this.registerForm.get('strUsername')?.value;
-    let strPassword = this.registerForm.get('strPassword')?.value;
-    let strPhone = this.registerForm.get('strPhone')?.value;
+    let strUsername = this.loginForm.get('strUsername')?.value;
+    let strPassword = this.loginForm.get('strPassword')?.value;
 
-    this.userRepo.registrarUsuario(strUsername,strPassword,strNombre,strApellido,strPhone).subscribe(
+    this.userRepo.loginUsuario(strUsername,strPassword).subscribe(
       (res) => {
         console.log(res);
         localStorage.setItem('userId', res.userId);

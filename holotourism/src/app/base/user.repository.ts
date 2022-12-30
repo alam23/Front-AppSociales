@@ -10,4 +10,8 @@ export abstract class UserRepository extends BasicService{
         apellido:string,
         phone:string
     ): Observable<UserModel>;
+    abstract loginUsuario(
+      userName: string,
+      password: string
+    ): Observable<UserModel>;
 }

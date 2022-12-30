@@ -57,4 +57,9 @@ export class MainComponent implements OnInit {
       strBusqueda: [null, Validators.required],
     });
   }
+
+  cerrarSesion(){
+    localStorage.removeItem('userId');
+    this.router.navigate(['/login']);
+  }
 }

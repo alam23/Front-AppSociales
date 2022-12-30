@@ -4,28 +4,40 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { ProfileRepository } from 'src/app/base/profile.repository';
 import { ProfileModel } from 'src/app/base/models/profile.model';
+import { ProfileMapper } from './profile.mapper';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProfileWebRepository extends ProfileRepository{
 
+  private profileMapper = new ProfileMapper();
+
   constructor(_http: HttpClient) {
     super(_http);
   }
 
-  EditarProfile(userId: string, username?: string, name?: string, lastname?: string, cellnumber?: string):
+  editarProfile(userId: string, username?: string, name?: string, lastname?: string, cellnumber?: string):
    Observable<ProfileModel> {
-    return this.put(`https://ca28d96c-1ab7-4120-833e-2c9e03ceb05a.mock.pstmn.io/profile/editprofile`,
+    return this.post(`https://localhost:7247/api/Usuario/updateDatosPerfil`,
      this.getOptionsRest(), {
       userId: userId,
-      username: username,
+      userName: username,
       name: name,
-      lastname: lastname,
-      cellnumber: cellnumber
+      lastName: lastname,
+      cellNumber: cellnumber
      }).pipe(
       map((data: any) => {
         return data;
+      }),
+    );
+  }
+
+  obtenerProfile(userId: string): Observable<ProfileModel> {
+    return this.get(`https://localhost:7247/api/Usuario/listDatosPerfil`+"?UserId="+userId,
+     this.getOptionsRest()).pipe(
+      map((data:any) => {
+        return this.profileMapper.mapFrom(data);
       }),
     );
   }
