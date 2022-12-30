@@ -1,3 +1,4 @@
+import { CommonService } from './service/commonService';
 import { RutaWebRepository } from './data/repository/ruta-repository/ruta-web.repository';
 import { RutaRepository } from 'src/app/base/ruta.repository';
 import { HomeWebRepository } from './data/repository/home-repository/home-web.repository';
@@ -32,6 +33,7 @@ import { ProfileWebRepository } from './data/repository/profile-repository/profi
     RegisterModule
   ],
   providers: [
+    { provide: CommonService },
     { provide: HomeRepository, useClass: HomeWebRepository },
     { provide: RutaRepository, useClass: RutaWebRepository },
     { provide: UserRepository, useClass: UserWebRepository },

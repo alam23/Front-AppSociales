@@ -1,7 +1,8 @@
 import { PostModel } from "./post.model"
+import { UserModel } from "./user.model";
 
 export interface RutaInfoModel {
-  routeId: string,
+  routeId: number,
   userOwner: string,
   name: string,
   description: string,
@@ -10,15 +11,6 @@ export interface RutaInfoModel {
   longitudInit: string,
   latitudeFin: string,
   longitudFin: string,
-  userOwnerNavigation: UserOwner,
+  userOwnerNavigation: UserModel,
   posts: PostModel[],
-}
-
-interface UserOwner {
-  userId: string,
-  userName: string,
-  password: string,
-  name: string,
-  lastName: string,
-  cellNumber: string,
 }

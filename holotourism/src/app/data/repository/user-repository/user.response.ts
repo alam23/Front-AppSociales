@@ -1,5 +1,5 @@
 export interface UserResponse {
-userId: string,
+  userId: string,
   userName: string,
   password: string,
   name: string,

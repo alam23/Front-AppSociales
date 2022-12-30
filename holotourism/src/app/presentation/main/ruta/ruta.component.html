@@ -76,7 +76,7 @@
             <mat-form-field class="example-full-width" style="height: 60px;">
               <input matInput formControlName="body" placeholder="Escriba algo aquí">
             </mat-form-field>
-            <button mat-button (click)="crearComentario(post.postId)">
+            <button mat-button (click)="crearComentario(post.postId.toString())">
               <mat-icon>add_circle</mat-icon>
               Agregar comentario
             </button>

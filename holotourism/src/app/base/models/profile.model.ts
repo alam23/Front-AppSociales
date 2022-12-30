@@ -1,5 +1,5 @@
 export interface ProfileModel {
-  userId: string,
+  userId: number,
   username: string,
   name: string,
   lastname: string,

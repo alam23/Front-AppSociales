@@ -1,22 +1,14 @@
 import { CommentaryModel } from "./commentary.model";
+import { UserModel } from "./user.model";
 
 export interface PostModel {
-  postId: string,
-  userId: string,
-  routeId: string,
+  postId: number,
+  userId: number,
+  routeId: number,
   title: string,
   body: string,
   image: string,
   route: string,
   user: UserModel,
   commentaries: CommentaryModel[]
-}
-
-interface UserModel {
-  userId: string,
-  userName: string,
-  password: string,
-  name: string,
-  lastName: string,
-  cellNumber: number
 }

@@ -33,10 +33,11 @@ export class RutaComponent {
         console.log(res);
 
         this.rutaInfo.posts.forEach((post, i)=>{
-          this.rutaRepo.obtenerComentario(post.postId).subscribe((res)=>{
+          this.rutaRepo.obtenerComentario(post.postId.toString()).subscribe((res)=>{
             res.commentaries.forEach((val)=>{
-              this.rutaRepo.obtenerUsuarioComentario(val.commentId).subscribe((res)=>{
+              this.rutaRepo.obtenerUsuarioComentario(val.commentId.toString()).subscribe((res)=>{
                 this.rutaInfo.posts[i].commentaries.push(res);
+                console.log(this.rutaInfo);
               })
             })
           })
@@ -64,7 +65,7 @@ export class RutaComponent {
 
     this.rutaRepo.crearPost(
       "1",
-      this.rutaInfo.routeId,
+      this.rutaInfo.routeId.toString(),
       "a",
       strBody,
       "a"
