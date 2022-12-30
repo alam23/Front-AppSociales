@@ -1,0 +1,18 @@
+.create-rute-card{
+    margin: 1.5%;
+    margin-left: 28px;
+    max-width: 1000px;
+    align-self: center;
+}
+
+.form-container{
+    align-content: center;
+}
+
+.main-header{
+    margin-bottom: 1%;
+}
+
+.field-full {
+    width: 100%;
+}

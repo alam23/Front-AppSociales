@@ -1,0 +1,27 @@
+
+<form class="form-container">
+    <mat-card class="create-rute-card">
+        <mat-card-header class="main-header">
+            <mat-card-title>Crear una nueva ruta</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="crearRutaForm">
+                
+                    <mat-form-field class="field-full">
+                        <mat-label>Nombre de la Ruta</mat-label>
+                        <input type="text" matInput formControlName="strName" placeholder="Ej. Machu Picchu">
+                    </mat-form-field>
+                
+                    <mat-form-field class="field-full">
+                        <mat-label>Describe tu ruta</mat-label>
+                        <textarea matInput formControlName="strDescription" placeholder="Ej. Viaje desde Lima hacia Cuzco conociendo todas las maravillas y lugares interesantes"></textarea>
+                    </mat-form-field>
+
+                    <button mat-fab extended color="primary" (click)="crearRuta()">
+                        <mat-icon>save_alt</mat-icon>
+                        Crear Ruta
+                    </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</form>

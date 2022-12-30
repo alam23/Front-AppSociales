@@ -1,5 +1,8 @@
+import { RutaComponent } from './ruta/ruta.component';
 import { HomeComponent } from './home/home.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
+import { CrearRutaComponent } from './crear-ruta/crear-ruta.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
@@ -13,7 +16,10 @@ const routes: Routes = [
     children: [
       { path: 'busqueda', component: BusquedaComponent },
       { path: 'home', component: HomeComponent},
-      { path: 'profile', component: ProfileComponent}
+      { path: 'profile', component: ProfileComponent},
+      { path: 'mis_rutas', component: MisRutasComponent},
+      { path: 'crear_ruta', component: CrearRutaComponent},
+      { path: 'ruta', component: RutaComponent}
     ],
   },
 ];

@@ -1,5 +1,6 @@
 <ng-container>
   <mat-card class="example-card">
+    <div class="editprofcontainer">
     <mat-card-header>
       <mat-card-title-group>
         <mat-card-title>Perfil de usuario</mat-card-title>
@@ -7,30 +8,31 @@
 
     </mat-card-header>
     <mat-card-content class="card-content">
-      <form class="example-form">
+      <form class="example-form" [formGroup]="profileForm">
         <br><mat-form-field class="example-full-width">
           <mat-label>Username</mat-label>
-          <input matInput placeholder="Ex. user1232" value="">
+          <input matInput placeholder="Ex. user1232" formControlName="strUserName">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Nombre</mat-label>
-          <input matInput placeholder="Ex. John..."><br>
+          <input matInput placeholder="Ex. John..." formControlName="strName"><br>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Apellido</mat-label>
-          <input matInput placeholder="Ex. Smith..."><br>
+          <input matInput placeholder="Ex. Smith..." formControlName="strLastName"><br>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
           <mat-label>Telefono Celular</mat-label>
-          <input matInput placeholder="Inserte su numero aquí"><br>
+          <input matInput placeholder="Inserte su numero aquí" formControlName="strCellNumber"><br>
         </mat-form-field>
+        <button mat-raised-button color="success2" id="editprof" (click)="EditarProfile()" *ngIf="!disabled">Guardar Cambios</button>
       </form>
+      <button mat-raised-button color="primary" (click)="ToggleDisable()" *ngIf="disabled">Editar perfil</button>
+      <button mat-raised-button color="success" id="cancel" (click)="ToggleDisable()" *ngIf="!disabled">Cancelar</button>
     </mat-card-content>
-    <mat-card-actions align="end">
-      <button mat-raised-button color="primary">Editar perfil</button>
-    </mat-card-actions>
+    </div>
   </mat-card>
 </ng-container>

@@ -9,13 +9,19 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 import { RouterModule } from '@angular/router';
 import { MainRoutingModule } from './main-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
+import { CrearRutaComponent } from './crear-ruta/crear-ruta.component';
+import { RutaComponent } from './ruta/ruta.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     BusquedaComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    MisRutasComponent,
+    CrearRutaComponent,
+    RutaComponent
   ],
   imports: [
     ComponentsModule,

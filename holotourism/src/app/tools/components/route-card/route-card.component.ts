@@ -1,5 +1,6 @@
 import { RutaModel } from 'src/app/base/models/ruta.model';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-route-card',
@@ -9,6 +10,13 @@ import { Component, Input } from '@angular/core';
 export class RouteCardComponent {
   @Input() routeModel!: RutaModel;
 
-  constructor() {}
+  constructor(
+    private router: Router,
+  ) {}
 
+  verRuta(){
+    this.router.navigate(['/main/ruta'], {
+      state: { rutaInfo: this.routeModel},
+    });
+  }
 }

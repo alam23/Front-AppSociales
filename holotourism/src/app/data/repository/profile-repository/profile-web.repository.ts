@@ -14,18 +14,20 @@ export class ProfileWebRepository extends ProfileRepository{
     super(_http);
   }
 
-  EditarProfile(userId: string):
-   Observable<ProfileModel[]> {
-    return this.put(`https://ca28d96c-1ab7-4120-833e-2c9e03ceb05a.mock.pstmn.io/Rutas/listRutas`,
+  EditarProfile(userId: string, username?: string, name?: string, lastname?: string, cellnumber?: string):
+   Observable<ProfileModel> {
+    return this.put(`https://ca28d96c-1ab7-4120-833e-2c9e03ceb05a.mock.pstmn.io/profile/editprofile`,
      this.getOptionsRest(), {
-      userId: userId
+      userId: userId,
+      username: username,
+      name: name,
+      lastname: lastname,
+      cellnumber: cellnumber
      }).pipe(
       map((data: any) => {
         return data;
       }),
     );
-
-
   }
 
 }

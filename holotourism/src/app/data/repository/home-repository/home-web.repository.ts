@@ -11,18 +11,50 @@ import { RutaModel } from 'src/app/base/models/ruta.model';
   providedIn: 'root',
 })
 export class HomeWebRepository extends HomeRepository{
+  
+  
   private homeMapper = new HomeMapper();
 
   constructor(_http: HttpClient) {
     super(_http);
   }
 
-  listarRutas(userId: string):
+  listarRutas():
    Observable<RutaModel[]> {
-    return this.post(`https://ca28d96c-1ab7-4120-833e-2c9e03ceb05a.mock.pstmn.io/Rutas/listRutas`,
+    return this.get(`https://localhost:7247/api/Routes/listAllRoutes`,
+     this.getOptionsRest()).pipe(
+      map((data: any) => {
+        return this.homeMapper.mapFrom(data);
+      }),
+      catchError((error) => {
+        console.log(error);
+        return throwError(error);
+      })
+    );
+  }
+
+  crearRuta(userId: string, name: String, description: String): 
+  Observable<RutaModel[]> {
+    return this.post(`https://localhost:7247/api/Routes/registrarRuta`,
      this.getOptionsRest(), {
-      userId: userId
+      userId: userId,
+      name: name,
+      description: description
      }).pipe(
+      map((data: any) => {
+        return this.homeMapper.mapFrom(data);
+      }),
+      catchError((error) => {
+        console.log(error);
+        return throwError(error);
+      })
+    );
+  }
+
+  listarMisRutas(userId: string): Observable<RutaModel[]> {
+    return this.get('https://localhost:7247/api/Routes/listRoutesxUserCreated/'+userId,
+     this.getOptionsRest()
+    ).pipe(
       map((data: any) => {
         return this.homeMapper.mapFrom(data);
       }),
@@ -35,10 +67,10 @@ export class HomeWebRepository extends HomeRepository{
 
   buscarRutas(strBusqueda: string):
   Observable<RutaModel[]> {
-   return this.post(`https://ca28d96c-1ab7-4120-833e-2c9e03ceb05a.mock.pstmn.io/Rutas/searchRutas`,
-    this.getOptionsRest(), {
-      strBusqueda: strBusqueda
-    }).pipe(
+   return this.post(`https://localhost:7247/api/Routes/buscarRoute`,
+    this.getOptionsRest(),
+      "\""+strBusqueda +"\""
+    ).pipe(
      map((data: any) => {
        return this.homeMapper.mapFrom(data);
      }),
