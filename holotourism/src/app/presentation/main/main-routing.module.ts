@@ -3,6 +3,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       { path: 'busqueda', component: BusquedaComponent },
-      { path: 'home', component: HomeComponent}
+      { path: 'home', component: HomeComponent},
+      { path: 'profile', component: ProfileComponent}
     ],
   },
 ];
