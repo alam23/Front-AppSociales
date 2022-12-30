@@ -1,1 +1,96 @@
-<p>ruta works!</p>
+<mat-grid-list cols="6" rowHeight="100px" *ngIf="rutaInfo !== undefined">
+  <mat-grid-tile
+    [colspan]="'5'"
+    [rowspan]="'1'"
+    class="route-title"
+  >
+    {{rutaInfo.name}}
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="'1'"
+    [rowspan]="'1'"
+  >
+    <button mat-raised-button color="primary">Ver ruta</button>
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]="'5'"
+    [rowspan]="'1'"
+  >
+    <div class="route-content">
+      {{rutaInfo.description}}
+      <br><br>
+      Creado el {{rutaInfo.dateCreated?.toLocaleDateString("en-GB")}} por {{rutaInfo.userOwnerNavigation.userName}}
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-card class="example-card" *ngIf="rutaInfo !== undefined">
+  <mat-card-header>
+    <mat-card-title>Crear Post</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form" [formGroup]="postForm">
+      <div style="display: flex">
+        <img src="assets/img/user.png" alt="" width="50" height="50">
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="body" placeholder="Escriba algo aquí">
+        </mat-form-field>
+        <button mat-button style="height: 55px" (click)="crearPost()">
+          <mat-icon>add_circle</mat-icon>
+          Agregar Post
+        </button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<ng-container *ngIf="rutaInfo !== undefined">
+  <ng-container *ngFor="let post of rutaInfo.posts">
+    <mat-card class="example-card" *ngIf="rutaInfo !== undefined">
+      <mat-card-header>
+        <mat-card-title>
+          <div class="post-person">
+            <mat-icon>person</mat-icon>  {{post.user.userName}}
+          </div>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="post-content">
+          {{post.body}}
+        </div>
+        <ng-container *ngIf="post.commentaries.length !== 0">
+          <ng-container *ngFor="let commentary of post.commentaries">
+            <div class="post-person">
+              <mat-icon>person</mat-icon>
+              <span>{{commentary.user.userName}}</span>
+            </div>
+            <div class="post-comment">
+              {{commentary.body}}
+            </div>
+          </ng-container>
+        </ng-container>
+        <form class="example-form" [formGroup]="commentaryForm">
+          <div style="display: flex">
+            <img src="assets/img/user.png" alt="" width="40" height="40">
+            <mat-form-field class="example-full-width" style="height: 60px;">
+              <input matInput formControlName="body" placeholder="Escriba algo aquí">
+            </mat-form-field>
+            <button mat-button (click)="crearComentario(post.postId)">
+              <mat-icon>add_circle</mat-icon>
+              Agregar comentario
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</ng-container>
+
+
+
+
+
+
+
+

@@ -1,3 +1,5 @@
+import { RutaWebRepository } from './data/repository/ruta-repository/ruta-web.repository';
+import { RutaRepository } from 'src/app/base/ruta.repository';
 import { HomeWebRepository } from './data/repository/home-repository/home-web.repository';
 import { HomeRepository } from 'src/app/base/home.repository';
 import { MainModule } from './presentation/main/main.module';
@@ -27,6 +29,7 @@ import { RegisterModule } from './presentation/register/register.module';
   ],
   providers: [
     { provide: HomeRepository, useClass: HomeWebRepository },
+    { provide: RutaRepository, useClass: RutaWebRepository },
   ],
   bootstrap: [AppComponent]
 })

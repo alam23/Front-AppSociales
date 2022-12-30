@@ -10,6 +10,6 @@
     {{routeModel.description}}
   </mat-card-content>
   <mat-card-actions align="end">
-    Creado el {{routeModel.dateCreated}}
+    Creado el {{routeModel.dateCreated?.toLocaleDateString("en-GB")}}
   </mat-card-actions>
 </mat-card>

@@ -16,7 +16,7 @@ export class RouteCardComponent {
 
   verRuta(){
     this.router.navigate(['/main/ruta'], {
-      state: { rutaInfo: this.routeModel},
+      state: { rutaId: this.routeModel.routeId},
     });
   }
 }

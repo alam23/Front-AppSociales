@@ -1,11 +1,11 @@
 export interface RutaModel {
-  route_id: string,
-  user_owner: string,
+  routeId: string,
+  userOwner: string,
   name: string,
   description: string,
-  dateCreated: string,
-  latitude_init: string,
-  longitud_init: string,
-  latitude_fin: string,
-  longitud_fin: string
+  dateCreated: Date,
+  latitudeInit: string,
+  longitudInit: string,
+  latitudeFin: string,
+  longitudFin: string
 }

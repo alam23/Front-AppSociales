@@ -11,8 +11,8 @@ import { RutaModel } from 'src/app/base/models/ruta.model';
   providedIn: 'root',
 })
 export class HomeWebRepository extends HomeRepository{
-  
-  
+
+
   private homeMapper = new HomeMapper();
 
   constructor(_http: HttpClient) {
@@ -33,7 +33,7 @@ export class HomeWebRepository extends HomeRepository{
     );
   }
 
-  crearRuta(userId: string, name: String, description: String): 
+  crearRuta(userId: string, name: String, description: String):
   Observable<RutaModel[]> {
     return this.post(`https://localhost:7247/api/Routes/registrarRuta`,
      this.getOptionsRest(), {
@@ -43,10 +43,6 @@ export class HomeWebRepository extends HomeRepository{
      }).pipe(
       map((data: any) => {
         return this.homeMapper.mapFrom(data);
-      }),
-      catchError((error) => {
-        console.log(error);
-        return throwError(error);
       })
     );
   }
