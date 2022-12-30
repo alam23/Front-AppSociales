@@ -52,7 +52,9 @@ export class CrearRutaComponent {
       (res) => {
         console.log(res);
         this.router.navigate(
-          ['/main/mis_rutas']
+          ['/main/mis_rutas'], {
+            state: { user: res}
+          }
         )
       }
     )

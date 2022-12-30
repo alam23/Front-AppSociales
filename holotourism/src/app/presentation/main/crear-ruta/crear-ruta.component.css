@@ -1,5 +1,6 @@
 .create-rute-card{
-    margin: 3%;
+    margin: 1.5%;
+    margin-left: 28px;
     max-width: 1000px;
     align-self: center;
 }
@@ -14,4 +15,4 @@
 
 .field-full {
     width: 100%;
-  }
+}
