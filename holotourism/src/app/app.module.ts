@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterModule } from './presentation/register/register.module';
+import { UserRepository } from './base/user.repository';
+import { UserWebRepository } from './data/repository/user-repository/user-web.repository';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { RegisterModule } from './presentation/register/register.module';
   ],
   providers: [
     { provide: HomeRepository, useClass: HomeWebRepository },
+    { provide: UserRepository, useClass: UserWebRepository },
   ],
   bootstrap: [AppComponent]
 })
