@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterModule } from './presentation/register/register.module';
 import { UserRepository } from './base/user.repository';
 import { UserWebRepository } from './data/repository/user-repository/user-web.repository';
+import { ProfileRepository } from './base/profile.repository';
+import { ProfileWebRepository } from './data/repository/profile-repository/profile-web.repository';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { UserWebRepository } from './data/repository/user-repository/user-web.re
     { provide: HomeRepository, useClass: HomeWebRepository },
     { provide: RutaRepository, useClass: RutaWebRepository },
     { provide: UserRepository, useClass: UserWebRepository },
+    { provide: ProfileRepository, useClass: ProfileWebRepository }
   ],
   bootstrap: [AppComponent]
 })

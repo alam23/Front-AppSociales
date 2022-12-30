@@ -1,3 +1,4 @@
+import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -17,6 +18,7 @@ import { RutaComponent } from './ruta/ruta.component';
     MainComponent,
     BusquedaComponent,
     HomeComponent,
+    ProfileComponent,
     MisRutasComponent,
     CrearRutaComponent,
     RutaComponent
