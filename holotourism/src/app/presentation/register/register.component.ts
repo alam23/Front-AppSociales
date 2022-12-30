@@ -37,7 +37,10 @@ export class RegisterComponent implements OnInit{
       strPhone: [null, Validators.required],
     });
   }
-
+  redirectTo(url:string){
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([url]));
+  }
   registrarUsuario(){
     if(!this.registerForm.valid){
       console.log("ERROR");

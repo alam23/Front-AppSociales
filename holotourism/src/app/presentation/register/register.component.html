@@ -1,5 +1,7 @@
 <mat-grid-list cols="2">
-    <mat-grid-tile>1</mat-grid-tile>
+    <mat-grid-tile>
+        <img src="assets/img/register-image.PNG" alt="" >
+    </mat-grid-tile>
     <mat-grid-tile>
         <mat-card class="register-card">
             <mat-card-header class="register-header">
@@ -39,9 +41,10 @@
                         </mat-form-field>
                     </p>
                     <button mat-fab extended color="primary" (click)="registrarUsuario()">
-                        <mat-icon>save_alt</mat-icon>
+                        <mat-icon>check_circle_outline</mat-icon>
                         Registrarse
                     </button>
+                    ¿Ya tienes una cuenta? <a href="/login">Ingresa aquí</a>
                 </form>
             </mat-card-content>
         </mat-card>
