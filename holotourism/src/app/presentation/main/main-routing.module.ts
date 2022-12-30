@@ -1,3 +1,4 @@
+import { RutaComponent } from './ruta/ruta.component';
 import { HomeComponent } from './home/home.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
       { path: 'busqueda', component: BusquedaComponent },
       { path: 'home', component: HomeComponent},
       { path: 'mis_rutas', component: MisRutasComponent},
-      { path: 'crear_ruta', component: CrearRutaComponent}
+      { path: 'crear_ruta', component: CrearRutaComponent},
+      { path: 'ruta', component: RutaComponent}
     ],
   },
 ];

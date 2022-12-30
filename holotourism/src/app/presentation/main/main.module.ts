@@ -10,6 +10,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
 import { CrearRutaComponent } from './crear-ruta/crear-ruta.component';
+import { RutaComponent } from './ruta/ruta.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CrearRutaComponent } from './crear-ruta/crear-ruta.component';
     BusquedaComponent,
     HomeComponent,
     MisRutasComponent,
-    CrearRutaComponent
+    CrearRutaComponent,
+    RutaComponent
   ],
   imports: [
     ComponentsModule,

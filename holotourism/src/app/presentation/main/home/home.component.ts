@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   listarRutas(){
-    this.homeRepo.listarRutas('a').subscribe((res) => {
+    this.homeRepo.listarRutas().subscribe((res) => {
       console.log(res);
       this.lstRutas = res;
     });

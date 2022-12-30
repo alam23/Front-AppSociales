@@ -45,9 +45,10 @@ export class MainComponent implements OnInit {
 
     this.homeRepo.buscarRutas(strBusqueda).subscribe((res) => {
       console.log(res);
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
       this.router.navigate(['/main/busqueda'], {
         state: { lstRutas: res },
-      });
+      }));
     });
   }
 
