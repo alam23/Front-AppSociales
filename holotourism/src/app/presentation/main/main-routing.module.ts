@@ -1,3 +1,4 @@
+import { RutaComponent } from './ruta/ruta.component';
 import { HomeComponent } from './home/home.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,8 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       { path: 'busqueda', component: BusquedaComponent },
-      { path: 'home', component: HomeComponent}
+      { path: 'home', component: HomeComponent},
+      { path: 'ruta', component: RutaComponent},
     ],
   },
 ];

@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card class="example-card" (click)="verRuta()">
   <mat-card-header>
     <mat-card-title-group>
       <mat-card-title>{{routeModel.name}}</mat-card-title>
@@ -10,6 +10,6 @@
     {{routeModel.description}}
   </mat-card-content>
   <mat-card-actions align="end">
-    Creado el {{routeModel.date_created}}
+    Creado el {{routeModel.dateCreated}}
   </mat-card-actions>
 </mat-card>

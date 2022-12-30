@@ -8,12 +8,14 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 import { RouterModule } from '@angular/router';
 import { MainRoutingModule } from './main-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RutaComponent } from './ruta/ruta.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     BusquedaComponent,
-    HomeComponent
+    HomeComponent,
+    RutaComponent
   ],
   imports: [
     ComponentsModule,
