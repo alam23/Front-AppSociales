@@ -51,7 +51,7 @@
       <mat-card-header>
         <mat-card-title>
           <div class="post-person">
-            <mat-icon>person</mat-icon>  {{post.user.userName}}
+            <mat-icon>person</mat-icon>  {{post.user?.userName}}
           </div>
         </mat-card-title>
       </mat-card-header>
@@ -63,10 +63,10 @@
           <ng-container *ngFor="let commentary of post.commentaries">
             <div class="post-person">
               <mat-icon>person</mat-icon>
-              <span>{{commentary.user.userName}}</span>
+              <span>{{commentary.user?.userName}}</span>
             </div>
             <div class="post-comment">
-              {{commentary.body}}
+              {{commentary?.body}}
             </div>
           </ng-container>
         </ng-container>

@@ -1,6 +1,7 @@
 export interface CommentaryModel{
   body: string,
   user: UserModel,
+  commentId: string,
 }
 
 interface UserModel {

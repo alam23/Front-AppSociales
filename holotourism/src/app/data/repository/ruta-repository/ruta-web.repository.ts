@@ -1,3 +1,5 @@
+import { CommentaryMapper3 } from './commentary3.mapper';
+import { PostModel } from './../../../base/models/post.model';
 import { CommentaryMapper } from './commentary.mapper';
 import { RutaMapper } from './ruta.mapper';
 import { HttpClient } from '@angular/common/http';
@@ -7,16 +9,19 @@ import { catchError, map } from 'rxjs/operators';
 import { RutaRepository } from 'src/app/base/ruta.repository';
 import { RutaInfoModel } from 'src/app/base/models/rutaInfo.model';
 import { PostMapper } from './post.mapper';
+import { CommentaryModel } from 'src/app/base/models/commentary.model';
+import { CommentaryMapper2 } from './commentary2.mapper';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RutaWebRepository extends RutaRepository{
 
-
   private rutaMapper = new RutaMapper();
   private postMapper = new PostMapper();
   private commentaryMapper = new CommentaryMapper();
+  private commentaryMapper2 = new CommentaryMapper2();
+  private commentaryMapper3 = new CommentaryMapper3();
 
   constructor(_http: HttpClient) {
     super(_http);
@@ -66,6 +71,34 @@ export class RutaWebRepository extends RutaRepository{
     ).pipe(
       map((data: any) => {
         return this.commentaryMapper.mapFrom(data);
+      }),
+      catchError((error) => {
+        console.log(error);
+        return throwError(error);
+      })
+    );
+  }
+
+  obtenerComentario(postId: string): Observable<PostModel> {
+    return this.get('https://localhost:7247/api/Routes/Post/'+postId,
+     this.getOptionsRest()
+    ).pipe(
+      map((data: any) => {
+        return this.commentaryMapper2.mapFrom(data);
+      }),
+      catchError((error) => {
+        console.log(error);
+        return throwError(error);
+      })
+    );
+  }
+
+  obtenerUsuarioComentario(commentId: string): Observable<CommentaryModel> {
+    return this.get('https://localhost:7247/api/Routes/Comment/'+commentId,
+     this.getOptionsRest()
+    ).pipe(
+      map((data: any) => {
+        return this.commentaryMapper3.mapFrom(data);
       }),
       catchError((error) => {
         console.log(error);
